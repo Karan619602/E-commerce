@@ -1,7 +1,7 @@
 import express from 'express';
 const app=express();
-import connectdatabase from './config/database.js';
-import errormiddleware from './middlewares/errors.js'
+import connectdatabase from './backend/config/database.js';
+import errormiddleware from './backend/middlewares/errors.js'
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import dotenv  from 'dotenv';
@@ -25,10 +25,10 @@ if (process.env.NODE_ENV !== 'production')
 {dotenv.config({ path: 'backend/config/config.env' })}
 
 
-import products from './routers/products.js';
-import users from './routers/usersroutes.js';
+import products from './backend/routers/products.js';
+import users from './backend/routers/usersroutes.js';
 
-import orders from './routers/orderroutes.js';
+import orders from './backend/routers/orderroutes.js';
 
 
 

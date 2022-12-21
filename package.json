@@ -2,10 +2,10 @@
   "name": "shopmore",
   "version": "1.0.0",
   "description": "e commerce store",
-  "main": "backend/server.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": " node backend/server.js"
+    "start": " node server.js"
   },
   "author": "",
   "license": "ISC",
