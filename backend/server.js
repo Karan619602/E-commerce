@@ -5,7 +5,7 @@ import errormiddleware from './middlewares/errors.js'
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import dotenv  from 'dotenv';
-
+import path  from 'path';
 import cors from 'cors';
 app.use(express.json());
 
@@ -41,6 +41,14 @@ app.use(errormiddleware);
 
 
 const port =process.env.PORT||8000
+
+if (process.env.NODE_ENV === 'PRODUCTION') {
+   
+    app.use(express.static("frontend/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
+}
 const server=app.listen(port,(err)=>{
     console.log(`server start on port :${port}`);
 
