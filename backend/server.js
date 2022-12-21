@@ -21,7 +21,7 @@ process.on("uncaughtException",err=>{
 
 
 connectdatabase();
-if (process.env.NODE_ENV !== 'PRODUCTION') 
+if (process.env.NODE_ENV !== 'production') 
 {dotenv.config({ path: 'backend/config/config.env' })}
 
 
@@ -43,7 +43,7 @@ app.use(errormiddleware);
 
 const port =process.env.PORT||8000
 
-if (process.env.NODE_ENV === 'PRODUCTION') {
+if (process.env.NODE_ENV === 'production') {
    
     app.use(express.static("frontend/build"));
   app.get("*", (req, res) => {
