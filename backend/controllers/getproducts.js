@@ -17,7 +17,7 @@ export const newproducts =asyncerror( async (req,res,next)=>{
 
 //get all products
 export const getproducts=asyncerror( async (req,res,next)=>{
-  const  resPerPage =6;
+  const  resPerPage =4;
   const productsCount = await products.countDocuments()
      const apifeatues= new Apifeatures(products.find(),req.query)
             .search()

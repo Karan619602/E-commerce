@@ -16,7 +16,7 @@ export const Product=({product})=>{
               <div className="ratings mt-auto">
                   
               </div> 
-              <p className="card-text">${product.price}</p>
+              <p className="card-text">₹{product.price}</p>
               <Link to={`/product/${product._id}`} id="view_btn" className="btn btn-block">View Details</Link>
           </div>
       </div>

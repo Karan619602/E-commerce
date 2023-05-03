@@ -20,6 +20,8 @@ RESET_PASSWORD_SUCCESS,
 RESET_PASSWORD_FAIL} from "../constant/userconstants";
 
 import axios from 'axios'
+import Cookies from 'universal-cookie';
+const cookies=new Cookies();
 //login
 export const login=(email,password)=>async(dispatch)=>{
     console.log(email,password);
@@ -31,6 +33,14 @@ export const login=(email,password)=>async(dispatch)=>{
                  }
                     }
         const {data}= await axios.post('/api/v1/login',{email,password},config)
+        console.log(data.token);
+          cookies.set('token',data.token,[{ path: '/' },{
+            expires: new Date(
+                Date.now() + 7* 24 * 60 * 60* 1000
+            ),
+            httpOnly: true
+          }])
+          console.log("token",cookies.get('token')); 
         dispatch({type:LOGIN_SUCCESS,
                    payload:data.user})
         

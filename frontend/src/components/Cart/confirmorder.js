@@ -30,7 +30,7 @@ const ConfirmOrder=({history})=>{
     const submithandler=async (e)=>{
       e.preventDefault();
 
-  
+      console.log(order);
                   dispatch(createOrder(order))
                   alert.success('Order Placed Succesfully')
                   history.push('/');
@@ -55,7 +55,7 @@ const ConfirmOrder=({history})=>{
               type="submit"
               className="btn btn-block py-3"
             >
-              Confirm COD Order Of ${cartItems.reduce((acc,item)=>acc+item.quantity*item.price,0)}
+              Confirm COD Order Of ₹{cartItems.reduce((acc,item)=>acc+item.quantity*item.price,0)}
             </button>
 
           </form>

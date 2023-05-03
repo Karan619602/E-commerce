@@ -2,8 +2,9 @@ import Orders from '../models/cart.js'
 import catchasyncerror from '../middlewares/catchasyncerror.js'
 import Errorhandling from '../error/errorhandling.js'
 
-//create new orders =>api/v1/order
+//create new orders =>api/v1/order/new
 export const newOrder= catchasyncerror(async(req,res,next)=>{
+
     const{orderItems,shippingInfo,itemsPrice,taxPrice,shippingPrice,totalPrice,paymentInfo}= req.body
 
 
