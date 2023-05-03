@@ -2,7 +2,7 @@ import axios from 'axios'
 import { ADD_TO_CART ,REMOVE_TO_CART,SAVE_SHIPPING_INFO} from '../constant/cartconstants'
 
 export const addItemtocart = (id, quantity) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/v1/product/${id}`)
+    const { data } = await axios.get(`https://e-commerce-six-murex.vercel.app/api/v1/product/${id}`)
 
 
     dispatch({

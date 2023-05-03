@@ -32,7 +32,7 @@ export const login=(email,password)=>async(dispatch)=>{
                      'Content-Type':'application/json'
                  }
                     }
-        const {data}= await axios.post('/api/v1/login',{email,password},config)
+        const {data}= await axios.post('https://e-commerce-six-murex.vercel.app/api/v1/login',{email,password},config)
         console.log(data.token);
           cookies.set('token',data.token,[{ path: '/' },{
             expires: new Date(
@@ -64,7 +64,7 @@ export const register=(name,email,password)=>async(dispatch)=>{
                      'Content-Type':'application/json'
                  }
                     }
-        const {data}= await axios.post('/api/v1/register',{name,email,password},config)
+        const {data}= await axios.post('https://e-commerce-six-murex.vercel.app/api/v1/register',{name,email,password},config)
         dispatch({type:REGISTER_USER_SUCCESS,
                    payload:data.user})
         
@@ -81,7 +81,7 @@ export const loaduser=()=>async(dispatch)=>{
     try {
         dispatch({type:LOAD_USER_REQUEST})
        
-        const {data}= await axios.get('/api/v1/me')
+        const {data}= await axios.get('https://e-commerce-six-murex.vercel.app/api/v1/me')
         dispatch({type:LOAD_USER_SUCCESS,
                    payload:data.user})
         
@@ -101,7 +101,7 @@ export const updateProfile=(userData)=>async(dispatch)=>{
                      'Content-Type':'multipart/form-data'
                  }
                     }
-        const {data}= await axios.put('/api/v1/me/update',userData,config)
+        const {data}= await axios.put('https://e-commerce-six-murex.vercel.app/api/v1/me/update',userData,config)
         dispatch({type:UPDATE_PROFILE_SUCCESS,
                    payload:data.success})
         
@@ -118,7 +118,7 @@ export const logoutuser=()=>async(dispatch)=>{
     try {
         
        
-        await axios.get('/api/v1/logout')
+        await axios.get('https://e-commerce-six-murex.vercel.app/api/v1/logout')
         dispatch({type:LOGOUT_SUCCESS
                    })
         
@@ -141,7 +141,7 @@ export const forgotPassword = (email) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('/api/v1/password/forgot', email, config)
+        const { data } = await axios.post('https://e-commerce-six-murex.vercel.app/api/v1/password/forgot', email, config)
 
         dispatch({
             type: FORGOT_PASSWORD_SUCCESS,
@@ -169,7 +169,7 @@ export const resetPassword = (token,passwords) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/password/reset/${token}`, passwords, config)
+        const { data } = await axios.put(`https://e-commerce-six-murex.vercel.app/api/v1/password/reset/${token}`, passwords, config)
 
         dispatch({
             type: RESET_PASSWORD_SUCCESS,
