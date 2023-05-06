@@ -43,13 +43,13 @@ app.use(errormiddleware);
 
 const port =process.env.PORT||8000
 
-if (process.env.NODE_ENV === 'production') {
+//if (process.env.NODE_ENV === 'production') {
    
     app.get('/',(req,res)=>{
-        app.use(express.static(path.resolve(__dirname,'frontend','build')))
-        res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+        app.use(express.static(path.resolve('frontend','build')))
+        res.sendFile(path.resolve('frontend','build','index.html'))
     })
-}
+//}
 const server=app.listen(port,(err)=>{
     console.log(`server start on port :${port}`);
 
