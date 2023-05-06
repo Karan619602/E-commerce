@@ -42,7 +42,7 @@ export const myOrders=()=>async(dispatch)=>{
 
         
         
-        const {data}= await axios.get('https://e-commerce-six-murex.vercel.app/api/v1/orders/me')
+        const {data}= await axios.get('/api/v1/orders/me')
         dispatch({
             type:MY_ORDERS_SUCCESS,
             
